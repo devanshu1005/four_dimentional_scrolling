@@ -17,7 +17,6 @@ class ReplyListWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Header with gradient
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
             decoration: BoxDecoration(
@@ -62,7 +61,6 @@ class ReplyListWidget extends StatelessWidget {
           
           const SizedBox(height: 16),
           
-          // Replies List
           FutureBuilder<List<VideoModel>>(
             future: ApiService.fetchReplies(parentId),
             builder: (context, snapshot) {
@@ -220,7 +218,6 @@ class ReplyListWidget extends StatelessWidget {
       ),
       child: Column(
         children: [
-          // User Profile Section
           Container(
             padding: const EdgeInsets.all(16),
             child: Column(
@@ -260,7 +257,6 @@ class ReplyListWidget extends StatelessWidget {
             ),
           ),
           
-          // Video Section
           Expanded(
             child: Container(
               margin: const EdgeInsets.only(left: 12, right: 12, bottom: 12),
@@ -310,7 +306,6 @@ class ReplyListWidget extends StatelessWidget {
                           autoPlay: false,
                         ),
                       ),
-                      // Double tap hint
                       Positioned(
                         top: 8,
                         right: 8,

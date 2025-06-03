@@ -210,7 +210,7 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget>
       builder: (context, child) {
         return Transform.scale(
           scale:
-              0.8 + (_playPauseAnimation.value * 0.2), // reduced bounce scale
+              0.8 + (_playPauseAnimation.value * 0.2), 
           child: Container(
             width: 36,
             height: 36,
@@ -223,7 +223,7 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget>
                   ? Icons.pause_rounded
                   : Icons.play_arrow_rounded,
               color: Colors.white,
-              size: 18, // minimal icon size
+              size: 18, 
             ),
           ),
         );
@@ -349,7 +349,6 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget>
               width: double.infinity,
               height: double.infinity,
             ),
-            // Gradient overlay for better contrast
             Container(
               decoration: BoxDecoration(
                 gradient: LinearGradient(
@@ -363,7 +362,6 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget>
                 ),
               ),
             ),
-            // Play button overlay
             Center(
               child: Container(
                 width: 80,

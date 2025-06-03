@@ -20,7 +20,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// main.dart
 class FeedPage extends StatefulWidget {
   const FeedPage({super.key});
 
@@ -89,14 +88,13 @@ class _FeedPageState extends State<FeedPage> {
                 }
 
                 final video = _videos[index];
-                // Inside _FeedPageState's PageView.builder
                 return Column(
                   children: [
                     Expanded(
                       child: VideoPlayerWidget(
                         videoUrl: video.videoUrl,
                         thumbnailUrl: video.thumbnailUrl,
-                        autoPlay: true, // ⬅ Main video plays on scroll
+                        autoPlay: true, 
                       ),
                     ),
                     Padding(

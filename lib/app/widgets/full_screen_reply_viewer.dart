@@ -82,10 +82,8 @@ class _FullscreenReplyViewerState extends State<FullscreenReplyViewer>
     _slideController.forward();
     _pulseController.repeat(reverse: true);
 
-    // Hide overlay after 4 seconds
     _hideOverlayAfterDelay();
     
-    // Set fullscreen mode
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
   }
 
@@ -97,7 +95,6 @@ class _FullscreenReplyViewerState extends State<FullscreenReplyViewer>
     _slideController.dispose();
     _pageController.dispose();
     
-    // Restore system UI
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
     super.dispose();
   }
@@ -134,7 +131,6 @@ class _FullscreenReplyViewerState extends State<FullscreenReplyViewer>
     _indicatorController.reset();
     _indicatorController.forward();
     
-    // Simulate loading delay
     Future.delayed(const Duration(milliseconds: 300), () {
       if (mounted) {
         setState(() {
@@ -150,7 +146,6 @@ class _FullscreenReplyViewerState extends State<FullscreenReplyViewer>
       backgroundColor: Colors.black,
       body: Stack(
         children: [
-          // Animated background gradient
           AnimatedContainer(
             duration: const Duration(milliseconds: 800),
             decoration: BoxDecoration(
@@ -166,7 +161,6 @@ class _FullscreenReplyViewerState extends State<FullscreenReplyViewer>
             ),
           ),
 
-          // Video PageView
           PageView.builder(
             controller: _pageController,
             scrollDirection: Axis.vertical,
@@ -191,7 +185,6 @@ class _FullscreenReplyViewerState extends State<FullscreenReplyViewer>
                   ),
                   child: Stack(
                     children: [
-                      // Video player
                       Center(
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(16),
@@ -203,7 +196,6 @@ class _FullscreenReplyViewerState extends State<FullscreenReplyViewer>
                         ),
                       ),
                       
-                      // Loading indicator
                       if (_isLoading && index == _currentIndex)
                         Center(
                           child: Container(
@@ -225,7 +217,6 @@ class _FullscreenReplyViewerState extends State<FullscreenReplyViewer>
             },
           ),
 
-          // Top Overlay
           AnimatedBuilder(
             animation: _overlayAnimation,
             builder: (context, child) {
@@ -251,7 +242,6 @@ class _FullscreenReplyViewerState extends State<FullscreenReplyViewer>
                         padding: const EdgeInsets.all(20),
                         child: Row(
                           children: [
-                            // Enhanced back button
                             Container(
                               decoration: BoxDecoration(
                                 gradient: LinearGradient(
@@ -289,7 +279,6 @@ class _FullscreenReplyViewerState extends State<FullscreenReplyViewer>
                             
                             const Spacer(),
                             
-                            // Enhanced user info card
                             ScaleTransition(
                               scale: _pulseAnimation,
                               child: Container(
@@ -368,7 +357,6 @@ class _FullscreenReplyViewerState extends State<FullscreenReplyViewer>
             },
           ),
 
-          // Bottom Overlay with enhanced UI
           SlideTransition(
             position: _slideAnimation,
             child: AnimatedOpacity(
@@ -393,13 +381,11 @@ class _FullscreenReplyViewerState extends State<FullscreenReplyViewer>
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        // Enhanced navigation hints
                         Container(
                           margin: const EdgeInsets.symmetric(horizontal: 20),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              // Navigation hint
                               Container(
                                 padding: const EdgeInsets.symmetric(
                                   horizontal: 16,
@@ -447,7 +433,6 @@ class _FullscreenReplyViewerState extends State<FullscreenReplyViewer>
                                 ),
                               ),
                               
-                              // Enhanced position indicator
                               ScaleTransition(
                                 scale: _indicatorAnimation,
                                 child: Container(
@@ -488,7 +473,6 @@ class _FullscreenReplyViewerState extends State<FullscreenReplyViewer>
                         
                         const SizedBox(height: 20),
                         
-                        // Enhanced progress indicators
                         AnimatedBuilder(
                           animation: _indicatorAnimation,
                           builder: (context, child) {
@@ -553,7 +537,6 @@ class _FullscreenReplyViewerState extends State<FullscreenReplyViewer>
             ),
           ),
 
-          // Double tap hint
           if (_showOverlay)
             Center(
               child: FadeTransition(
